@@ -1,23 +1,15 @@
 "use client";
-
-import { Button } from "@/components/ui/button";
+import { BST } from "@/lib/bst/BST";
 
 export default function Home() {
-    return (
-        <main className="min-h-screen flex flex-col gap-6 items-center justify-center">
-            <h1 className="text-3xl font-bold">shadcn test</h1>
+    const tree = new BST();
 
-            <Button>Primary button</Button>
+    tree.insertMany([10, 5, 15, 2, 7, 12, 20]);
+    tree.delete(5);
 
-            <Button variant="secondary">Secondary button</Button>
+    console.log("inorder", tree.inorder());
+    console.log("pre", tree.preorder());
+    console.log("post", tree.postorder());
 
-            <Button variant="outline">Outline button</Button>
-
-            <Button
-                onClick={() => document.documentElement.classList.toggle("dark")}
-            >
-                Toggle dark
-            </Button>
-        </main>
-    );
+    return <div>BST ready</div>;
 }

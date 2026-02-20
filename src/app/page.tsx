@@ -1,15 +1,12 @@
 "use client";
 import { BST } from "@/lib/bst/BST";
+import { computePositions } from "@/lib/layout/computePositions";
 
 export default function Home() {
     const tree = new BST();
+    tree.insertMany([10, 5, 15, 2, 7]);
 
-    tree.insertMany([10, 5, 15, 2, 7, 12, 20]);
-    tree.delete(5);
+    console.log(computePositions(tree.root));
 
-    console.log("inorder", tree.inorder());
-    console.log("pre", tree.preorder());
-    console.log("post", tree.postorder());
-
-    return <div>BST ready</div>;
+    return <div>Layout ready</div>;
 }
